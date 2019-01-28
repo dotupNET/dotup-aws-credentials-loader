@@ -1,20 +1,32 @@
 [![Build Status](https://travis-ci.org/dotupNET/dotup-aws-credentials-loader.svg?branch=master)](https://travis-ci.org/dotupNET/dotup-aws-credentials-loader)
 
 # dotup-aws-credentials-loader
-Template for typescript libraries.
+Small tool to load aws credentials file on windows.
 
-With tslint, jasmine, travis, typedoc and gh-pages integration.
+Default path:
+c:\users\PROFILENAME\.was\credentials
+
+You can specify the profile name which defaults to [default] on GetCredentials.
 
 ## USAGE
 
-Replace your-project-name and your-user-name with your own.
+Typescript:
+```typescript
+import { AwsCredentialsLoader } from './AwsCredentialsLoader';
 
-- git clone https://github.com/dotupNET/dotup-aws-credentials-loader.git **your-project-name**
-- git remote set-url origin https://github.com/your-user-name/your-project-name.git
-- Modify package.json (name, version, ...)
-- Create your library
-- Run in terminal: npm publish
-- git remote add template https://github.com/dotupNET/dotup-aws-credentials-loader.git (if you want to fetch upgrades)
+export class Sample {
+
+  run(): void {
+    const loader = new AwsCredentialsLoader();
+    const cred = loader.GetCredentials();
+    console.log(cred);
+  }
+}
+
+const sample = new Sample();
+sample.run();
+
+```
 
 
 ## Docs:

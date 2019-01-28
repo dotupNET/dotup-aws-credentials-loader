@@ -1,3 +1,5 @@
+// tslint:disable:non-literal-fs-path
+
 import * as fs from 'fs';
 import * as path from 'path';
 import { AwsCredential } from './AwsCredential';
@@ -13,13 +15,14 @@ export class AwsCredentialsLoader {
 
     const credPath = path.join(this.Path, this.FileName);
 
-    // tslint:disable-next-line:non-literal-fs-path
-    const fileContent = fs.readFileSync(credPath)
-      .toString()
-      .split('\n');
+    const fileContent = fs
+      .readFileSync(credPath)
+      .toString();
+
+    const fileLines = fileContent.split('\n');
 
     let profileFound: boolean = false;
-    fileContent.forEach(line => {
+    fileLines.forEach(line => {
 
       if (line === profileName) {
         profileFound = true;

@@ -120,6 +120,7 @@ module.exports = function (grunt) {
   grunt.loadNpmTasks('grunt-run');
 
   // Default tasks.
+  grunt.registerTask("test", ["run:test"]);
   grunt.registerTask("serve", ["concurrent:watchers"]);
   grunt.registerTask("build", ["clean", "ts", "copy:assets"]);
   grunt.registerTask("release", ["clean", "ts", "run:test", "tslint:all", "copy:assets"]);

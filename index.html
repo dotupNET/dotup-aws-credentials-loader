@@ -69,7 +69,7 @@
 				<h1 id="dotup-aws-credentials-loader">dotup-aws-credentials-loader</h1>
 				<p>Small tool to load aws credentials from file.</p>
 				<p>Default path:
-				process.env[&#39;USERPROFILE&#39;].aws\credentials</p>
+				process.env[&#39;USERPROFILE&#39;]\.aws\credentials</p>
 				<p>You can specify the profile name which defaults to [default] on GetCredentials().</p>
 				<p>You can use it with grunt-aws-lambda for example.</p>
 				<h2 id="usage">USAGE</h2>
@@ -88,6 +88,41 @@
 <span class="hljs-keyword">const</span> sample = <span class="hljs-keyword">new</span> Sample();
 sample.run();
 </code></pre>
+				<p>grunt-aws-lambda:</p>
+				<pre><code class="language-javascript"><span class="hljs-keyword">const</span> awsCreds = <span class="hljs-built_in">require</span>(<span class="hljs-string">'dotup-aws-credentials-loader'</span>);
+
+<span class="hljs-built_in">module</span>.exports = <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">grunt</span>) </span>{
+
+  <span class="hljs-keyword">const</span> loader = <span class="hljs-keyword">new</span> awsCreds.AwsCredentialsLoader();
+  <span class="hljs-keyword">const</span> credentials = loader.GetCredentials();
+
+  <span class="hljs-comment">// Project configuration.</span>
+  grunt.initConfig({
+
+    <span class="hljs-attr">pkg</span>: grunt.file.readJSON(<span class="hljs-string">'package.json'</span>),
+
+    ...
+
+    lambda_deploy: {
+      <span class="hljs-attr">default</span>: {
+        <span class="hljs-attr">arn</span>: functionArn,
+        <span class="hljs-attr">options</span>: {
+          <span class="hljs-attr">accessKeyId</span>: credentials.accessKeyId,
+          <span class="hljs-attr">secretAccessKey</span>: credentials.secretAccessKey,
+          <span class="hljs-attr">region</span>: <span class="hljs-string">"eu-west-1"</span>
+        },
+      }
+    }
+
+  });
+
+  grunt.loadNpmTasks(<span class="hljs-string">'grunt-aws-lambda'</span>);
+
+  grunt.registerTask(<span class="hljs-string">'lambda-pack'</span>, [<span class="hljs-string">'lambda_package:default'</span>]);
+  grunt.registerTask(<span class="hljs-string">'lambda-deploy'</span>, [<span class="hljs-string">'lambda_package:default'</span>, <span class="hljs-string">'lambda_deploy:default'</span>]);
+
+  ...
+};</code></pre>
 				<h2 id="docs-">Docs:</h2>
 				<p><a href="https://dotupnet.github.io/dotup-aws-credentials-loader/index.html">https://dotupnet.github.io/dotup-aws-credentials-loader/index.html</a></p>
 				<h2 id="repository-">repository:</h2>

@@ -52,7 +52,8 @@ module.exports = function (grunt) {
       default: {
         arn: functionArn,
         options: {
-          credentialsJSON: credentials,
+          accessKeyId: credentials.accessKeyId,
+          secretAccessKey: credentials.secretAccessKey,
           region: "eu-west-1"
         },
       }

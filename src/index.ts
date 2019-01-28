@@ -1,1 +1,2 @@
-export * from './AwesomeLibrary';
+export * from './AwsCredential';
+export * from './AwsCredentialsLoader';

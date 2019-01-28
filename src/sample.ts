@@ -1,11 +1,11 @@
-import { AwesomeLibrary } from './AwesomeLibrary';
+import { AwsCredentialsLoader } from './AwsCredentialsLoader';
 
 export class Sample {
 
   run(): void {
-    const awesome = new AwesomeLibrary();
-    console.log(awesome);
-    console.log('Sample done');
+    const loader = new AwsCredentialsLoader();
+    const cred = loader.GetCredentials();
+    console.log(cred);
   }
 }
 

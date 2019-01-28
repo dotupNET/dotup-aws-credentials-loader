@@ -1,22 +1,18 @@
 {
-  "name": "dotup-ts-library-template",
-  "version": "0.0.22",
-  "description": "template for typescript libraries",
+  "name": "dotup-aws-credentials-loader",
+  "version": "0.0.1",
+  "description": "load aws credentials from aws-cli file",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
   "scripts": {
-    "release": "npm run clean-build && npm run test && git push && npm run gh-pages && npm publish",
-    "clean-dist": "rimraf dist",
-    "clean-build": "rimraf dist && tsc",
     "test": "jasmine-ts",
     "docs": "typedoc --mode file --out docs src --exclude \"**/*+(index|.spec|.e2e).ts\"",
     "gh-pages": "rimraf docs && npm run docs && gh-pages -d docs",
-    "postversion": "git push && git push --tags",
     "npm-publish": "npm publish"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/dotupNET/dotup-ts-library-template.git"
+    "url": "git+https://github.com/dotupNET/dotup-aws-credentials-loader.git"
   },
   "keywords": [
     "typescript",
@@ -26,9 +22,9 @@
   "author": "Peter Ullrich",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/dotupNET/dotup-ts-library-template/issues"
+    "url": "https://github.com/dotupNET/dotup-aws-credentials-loader/issues"
   },
-  "homepage": "https://github.com/dotupNET/dotup-ts-library-template#readme",
+  "homepage": "https://github.com/dotupNET/dotup-aws-credentials-loader#readme",
   "devDependencies": {
     "@types/jasmine": "^3.3.7",
     "gh-pages": "^2.0.1",

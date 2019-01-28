@@ -7,4 +7,6 @@ script:
  - npm test
  before_script:
  - npm run build
- 
+ branches:
+  only:
+  - master

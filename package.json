@@ -5,6 +5,7 @@
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
   "scripts": {
+    "build": "tsc",
     "test": "jasmine-ts",
     "docs": "typedoc --mode file --out docs src --exclude \"**/*+(index|.spec|.e2e).ts\"",
     "gh-pages": "rimraf docs && npm run docs && gh-pages -d docs",

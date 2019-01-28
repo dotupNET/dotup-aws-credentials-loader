@@ -32,6 +32,42 @@ sample.run();
 
 ```
 
+grunt-aws-lambda:
+```javascript
+const awsCreds = require('dotup-aws-credentials-loader');
+
+module.exports = function (grunt) {
+
+  const loader = new awsCreds.AwsCredentialsLoader();
+  const credentials = loader.GetCredentials();
+
+  // Project configuration.
+  grunt.initConfig({
+
+    pkg: grunt.file.readJSON('package.json'),
+
+    ...
+
+    lambda_deploy: {
+      default: {
+        arn: functionArn,
+        options: {
+          credentialsJSON: credentials,
+          region: "eu-west-1"
+        },
+      }
+    }
+
+  });
+
+  grunt.loadNpmTasks('grunt-aws-lambda');
+
+  grunt.registerTask('lambda-pack', ['lambda_package:default']);
+  grunt.registerTask('lambda-deploy', ['lambda_package:default', 'lambda_deploy:default']);
+
+  ...
+};
+```
 
 ## Docs:
 https://dotupnet.github.io/dotup-aws-credentials-loader/index.html

@@ -8,6 +8,8 @@ c:\users\PROFILENAME\.was\credentials
 
 You can specify the profile name which defaults to [default] on GetCredentials.
 
+You can use it with grunt-aws-lambda for example.
+
 ## USAGE
 
 Typescript:

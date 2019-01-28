@@ -6,9 +6,18 @@ import { AwsCredential } from './AwsCredential';
 
 export class AwsCredentialsLoader {
 
-  public Path: string = path.join(process.env['USERPROFILE'], '.aws');
+  public Path: string; // = path.join(process.env['USERPROFILE'], '.aws');
 
   public FileName: string = 'credentials';
+
+  constructor() {
+    const profilePath = process.env['USERPROFILE'];
+    if (profilePath) {
+      this.Path = path.join(profilePath, '.aws');
+    } else {
+      this.Path = '';
+    }
+  }
 
   GetCredentials(profileName: string = '[default]'): AwsCredential {
     const result = new AwsCredential();

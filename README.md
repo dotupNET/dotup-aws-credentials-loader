@@ -6,7 +6,7 @@ https://www.npmjs.com/package/dotup-aws-credentials-loader
 Small tool to load aws credentials from file.
 
 Default path:
-process.env['USERPROFILE']\.aws\credentials
+process.env['USERPROFILE']\\.aws\credentials
 
 You can specify the profile name which defaults to [default] on GetCredentials().
 

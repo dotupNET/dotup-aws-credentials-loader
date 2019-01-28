@@ -64,20 +64,30 @@
 	<div class="row">
 		<div class="col-8 col-content">
 			<div class="tsd-panel tsd-typography">
+				<p><a href="https://www.npmjs.com/package/dotup-aws-credentials-loader">https://www.npmjs.com/package/dotup-aws-credentials-loader</a></p>
 				<p><a href="https://travis-ci.org/dotupNET/dotup-aws-credentials-loader"><img src="https://travis-ci.org/dotupNET/dotup-aws-credentials-loader.svg?branch=master" alt="Build Status"></a></p>
 				<h1 id="dotup-aws-credentials-loader">dotup-aws-credentials-loader</h1>
-				<p>Template for typescript libraries.</p>
-				<p>With tslint, jasmine, travis, typedoc and gh-pages integration.</p>
+				<p>Small tool to load aws credentials from file.</p>
+				<p>Default path:
+				process.env[&#39;USERPROFILE&#39;].aws\credentials</p>
+				<p>You can specify the profile name which defaults to [default] on GetCredentials().</p>
+				<p>You can use it with grunt-aws-lambda for example.</p>
 				<h2 id="usage">USAGE</h2>
-				<p>Replace your-project-name and your-user-name with your own.</p>
-				<ul>
-					<li>git clone <a href="https://github.com/dotupNET/dotup-aws-credentials-loader.git">https://github.com/dotupNET/dotup-aws-credentials-loader.git</a> <strong>your-project-name</strong></li>
-					<li>git remote set-url origin <a href="https://github.com/your-user-name/your-project-name.git">https://github.com/your-user-name/your-project-name.git</a></li>
-					<li>Modify package.json (name, version, ...)</li>
-					<li>Create your library</li>
-					<li>Run in terminal: npm publish</li>
-					<li>git remote add template <a href="https://github.com/dotupNET/dotup-aws-credentials-loader.git">https://github.com/dotupNET/dotup-aws-credentials-loader.git</a> (if you want to fetch upgrades)</li>
-				</ul>
+				<p>Typescript:</p>
+				<pre><code class="language-typescript"><span class="hljs-keyword">import</span> { AwsCredentialsLoader } <span class="hljs-keyword">from</span> <span class="hljs-string">'./AwsCredentialsLoader'</span>;
+
+<span class="hljs-keyword">export</span> <span class="hljs-keyword">class</span> Sample {
+
+  run(): <span class="hljs-built_in">void</span> {
+    <span class="hljs-keyword">const</span> loader = <span class="hljs-keyword">new</span> AwsCredentialsLoader();
+    <span class="hljs-keyword">const</span> cred = loader.GetCredentials();
+    <span class="hljs-built_in">console</span>.log(cred);
+  }
+}
+
+<span class="hljs-keyword">const</span> sample = <span class="hljs-keyword">new</span> Sample();
+sample.run();
+</code></pre>
 				<h2 id="docs-">Docs:</h2>
 				<p><a href="https://dotupnet.github.io/dotup-aws-credentials-loader/index.html">https://dotupnet.github.io/dotup-aws-credentials-loader/index.html</a></p>
 				<h2 id="repository-">repository:</h2>

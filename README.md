@@ -1,12 +1,14 @@
+https://www.npmjs.com/package/dotup-aws-credentials-loader
+
 [![Build Status](https://travis-ci.org/dotupNET/dotup-aws-credentials-loader.svg?branch=master)](https://travis-ci.org/dotupNET/dotup-aws-credentials-loader)
 
 # dotup-aws-credentials-loader
-Small tool to load aws credentials file on windows.
+Small tool to load aws credentials from file.
 
 Default path:
-c:\users\PROFILENAME\.was\credentials
+process.env['USERPROFILE']\.aws\credentials
 
-You can specify the profile name which defaults to [default] on GetCredentials.
+You can specify the profile name which defaults to [default] on GetCredentials().
 
 You can use it with grunt-aws-lambda for example.
 

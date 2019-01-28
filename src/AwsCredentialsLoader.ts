@@ -13,6 +13,7 @@ export class AwsCredentialsLoader {
 
     const credPath = path.join(this.Path, this.FileName);
 
+    // tslint:disable-next-line:non-literal-fs-path
     const fileContent = fs.readFileSync(credPath)
       .toString()
       .split('\n');
@@ -40,7 +41,7 @@ export class AwsCredentialsLoader {
           default:
         }
 
-        if (result.isComplete()) {
+        if (this.isComplete(result)) {
           return result;
         }
       }
@@ -48,5 +49,19 @@ export class AwsCredentialsLoader {
     });
 
     return result;
+  }
+
+  isComplete(result: AwsCredential): boolean {
+    if (!result.accessKeyId) {
+      return false;
+    }
+    if (!result.secretAccessKey) {
+      return false;
+    }
+    if (!result.ProfileName) {
+      return false;
+    }
+
+    return true;
   }
 }

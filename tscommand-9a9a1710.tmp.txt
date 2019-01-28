@@ -1,1 +1,0 @@
-src\AwsCredential.ts src\AwsCredentialsLoader.ts src\index.ts src\sample.ts --sourcemap --declaration --removeComments --noImplicitAny --alwaysStrict --noImplicitThis --strictFunctionTypes --esModuleInterop --lib es6,es2017,dom --target ES6 --module commonjs --outDir dist

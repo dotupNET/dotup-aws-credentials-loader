@@ -17,9 +17,15 @@
     "url": "git+https://github.com/dotupNET/dotup-aws-credentials-loader.git"
   },
   "keywords": [
-    "typescript",
-    "library",
-    "template"
+    "amazon",
+    "aws",
+    "alexa",
+    "ask",
+    "aws-cli",
+    "credentials",
+    "grunt",
+    "aws-deploy",
+    "grunt-aws-lambda"
   ],
   "author": "Peter Ullrich",
   "license": "MIT",

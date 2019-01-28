@@ -1,5 +1,3 @@
-https://www.npmjs.com/package/dotup-aws-credentials-loader
-
 [![Build Status](https://travis-ci.org/dotupNET/dotup-aws-credentials-loader.svg?branch=master)](https://travis-ci.org/dotupNET/dotup-aws-credentials-loader)
 
 # dotup-aws-credentials-loader
@@ -73,5 +71,8 @@ module.exports = function (grunt) {
 ## Docs:
 https://dotupnet.github.io/dotup-aws-credentials-loader/index.html
 
-## repository:
+## NPM:
+https://www.npmjs.com/package/dotup-aws-credentials-loader
+
+## Repository:
 https://github.com/dotupNET/dotup-aws-credentials-loader
